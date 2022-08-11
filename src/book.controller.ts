@@ -1,10 +1,11 @@
-import { Controller, Get, Post, HttpCode,} from "@nestjs/common";
+import { Controller, Get, Post, HttpCode, Body} from "@nestjs/common";
+import { CreateBookDto } from "./create-book.dto";
 
 @Controller('books')
 export class BookController {
     @Post()
     @HttpCode(204)
-    create(): string {
+   async create(@Body() createBookDto: CreateBookDto): Promise<string> {
         return 'Should make a new Book entry'
     }
 
