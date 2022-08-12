@@ -1,11 +1,19 @@
-import { Controller, Get, Post, HttpCode, Body} from "@nestjs/common";
-import { CreateBookDto } from "./create-book.dto";
+import { Controller, Get, Post, HttpCode, Body, Res} from "@nestjs/common";
+import { CreateBookDto } from "./dto/create-book.dto";
+import { BooksService } from "./book.service";
+import { Book } from "./interfaces/book.inteface";
+
+
 
 @Controller('books')
 export class BookController {
+    constructor(private booksService: BooksService) {}
+
+
     @Post()
     @HttpCode(204)
    async create(@Body() createBookDto: CreateBookDto): Promise<string> {
+        console.log('data')
         return 'Should make a new Book entry'
     }
 
@@ -15,3 +23,4 @@ export class BookController {
         return `<h1>Should Return Books</h1>`;
     }
 };
+
