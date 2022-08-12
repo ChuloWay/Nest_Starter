@@ -1,7 +1,7 @@
 import { Controller, Get, Post, HttpCode, Body, Res} from "@nestjs/common";
-import { CreateBookDto } from "./dto/create-book.dto";
+import { CreateBookDto } from "../dto/create-book.dto";
 import { BooksService } from "./book.service";
-import { Book } from "./interfaces/book.inteface";
+import { Book } from "../interfaces/book.inteface";
 
 
 
